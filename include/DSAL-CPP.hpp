@@ -52,6 +52,7 @@ namespace dsal
         Node<T> *head;
 
     public:
+    //Linked list manipulation.
         void append(const T &value);
 
         void remove(const T &index);
