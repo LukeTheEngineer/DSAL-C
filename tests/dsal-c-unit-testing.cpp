@@ -31,35 +31,25 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#pragma once
+#include <etest.h>
+#include "../include/DSAL-CPP.hpp"
 
-namespace dsal
+TEST(LinkedList, NODE)
 {
-    template <typename T>
-    class Node
-    {
-    public:
-        T data;
-        Node *next;
+    dsal::LinkedList<int> NodeTest;
 
-        Node(const T &value) : data(value), next(nullptr) {}
-    };
+    NodeTest.append(1);
 
-    template <typename T>
-    class LinkedList
-    {
-    private:
-        Node<T> *head;
+    NodeTest.display();
 
-    public:
-        // Linked list manipulation.
-        void append(const T &value);
+    NodeTest.remove(0);
 
-        void remove(const T &index);
+    NodeTest.display();
+}
 
-        void display();
+int main(void)
+{
+    RUN_ETESTS();
 
-        ~LinkedList();
-    };
-
+    return 0;
 }

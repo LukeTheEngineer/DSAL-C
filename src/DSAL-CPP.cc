@@ -31,8 +31,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#include "../include/DSAL-C.hpp"
-#include <etest.h>
+#include "../include/DSAL-CPP.hpp"
 #include <iostream>
 
 namespace dsal
