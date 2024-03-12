@@ -1,8 +1,7 @@
 /**
- * @file    DSAL-C.hpp
+ * @file    dsal-c-test.c
  * @brief   BSD 3-Clause License
- * @date    January 25th, 2024
- *
+ * @date    March 12th, 2024
  *
  * @copyright (c) 2024 Lukas R. Jackson
  * All rights reserved.
@@ -31,25 +30,37 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#include <etest.h>
-#include "../include/DSAL-CPP.hpp"
 
-TEST(LinkedList, NODE)
-{
-    dsal::LinkedList<int> NodeTest;
+#include "../include/DSAL-C.h"
+#include <stdio.h>
 
-    NodeTest.append(1);
+int main() {
+    // Create an empty list
+    struct node* head = NULL;
 
-    NodeTest.display();
+    // Test append_beginning() function
+    printf("Appending elements to the beginning of the list: ");
+    append_beginning(&head, 5);
+    append_beginning(&head, 10);
+    append_beginning(&head, 15);
+    print_list(head); // Expected output: 15 10 5
 
-    NodeTest.remove(0);
+    // Test append_end() function
+    printf("Appending elements to the end of the list: ");
+    append_end(&head, 20);
+    append_end(&head, 25);
+    append_end(&head, 30);
+    print_list(head); // Expected output: 15 10 5 20 25 30
 
-    NodeTest.display();
-}
+    // Test remove_node() function
+    printf("Removing element at index 2: ");
+    remove_node(&head, 2);
+    print_list(head); // Expected output: 15 10 20 25 30
 
-int main(void)
-{
-    RUN_ETESTS();
+    // Test del_list() function
+    printf("Deleting the list: ");
+    del_list(&head);
+    print_list(head); // Expected output: (empty list)
 
     return 0;
 }

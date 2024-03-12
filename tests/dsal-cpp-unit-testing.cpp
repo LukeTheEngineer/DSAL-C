@@ -1,7 +1,8 @@
 /**
- * @file    DSAL-C.h
+ * @file    DSAL-C.hpp
  * @brief   BSD 3-Clause License
- * @date    Feburary 6th, 2024
+ * @date    January 25th, 2024
+ *
  *
  * @copyright (c) 2024 Lukas R. Jackson
  * All rights reserved.
@@ -30,26 +31,29 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
+#include "../include/DSAL-CPP.hpp"
 
-#ifndef __dsal_c_h__
-#define __dsal_c_h__
+using namespace dsal;
 
-struct node {
-    int data;
-    struct node* next;
-};
+int main() {
+    // Create an instance of LinkedList with int as the template type
+    LinkedList<int> myLinkedList;
 
-struct node* append(int data);
+    // Append elements to the linked list
+    myLinkedList.append(42);
+    myLinkedList.append(55);
+    myLinkedList.append(123);
 
-void append_beginning(struct node** head, int data);
+    // Display the contents of the linked list
+    myLinkedList.display();
 
-void append_end(struct node** head, int data);
+    // Remove an element at a specific index
+    myLinkedList.remove(1); // Assuming you have an element at index 1
 
-void print_list(struct node* head);
+    // Display the contents again after removal
+    myLinkedList.display();
 
-void remove_node(struct node** head, const int index);
+    // Destructor will be automatically called when myLinkedList goes out of scope
 
-void del_list(struct node** head);
-
-
-#endif /* __dsal_c_h__ */
+    return 0;
+}

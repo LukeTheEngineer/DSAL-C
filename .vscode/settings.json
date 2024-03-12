@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.gdb_history": "c",
+        "dsal-c.h": "c"
+    }
+}
