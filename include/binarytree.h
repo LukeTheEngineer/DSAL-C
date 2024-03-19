@@ -1,5 +1,5 @@
 /**
- * @file    dsal-c-test.c
+ * @file    binarytree.h
  * @brief   BSD 3-Clause License
  * @date    March 12th, 2024
  *
@@ -31,36 +31,10 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include "../include/linkedlist.h"
-#include <stdio.h>
+#ifndef __binarytree_h__
+#define __binarytree_h__
 
-int main() {
-    // Create an empty list
-    struct node* head = NULL;
 
-    // Test append_beginning() function
-    printf("Appending elements to the beginning of the list: ");
-    append_beginning(&head, 5);
-    append_beginning(&head, 10);
-    append_beginning(&head, 15);
-    print_list(head); // Expected output: 15 10 5
 
-    // Test append_end() function
-    printf("Appending elements to the end of the list: ");
-    append_end(&head, 20);
-    append_end(&head, 25);
-    append_end(&head, 30);
-    print_list(head); // Expected output: 15 10 5 20 25 30
 
-    // Test remove_node() function
-    printf("Removing element at index 2: ");
-    remove_node(&head, 2);
-    print_list(head); // Expected output: 15 10 20 25 30
-
-    // Test del_list() function
-    printf("Deleting the list: ");
-    del_list(&head);
-    print_list(head); // Expected output: (empty list)
-
-    return 0;
-}
+#endif /* __binarytree_h__ */
